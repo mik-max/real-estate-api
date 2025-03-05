@@ -1,6 +1,5 @@
 import express from "express";
 import connectToDatabase from "./database/mongodb.js";
-import { PORT } from "./config/env.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
 import authRouter from "./routes/auth.routes.js";
 import propertyRouter from "./routes/property.routes.js";
@@ -8,6 +7,8 @@ import userRouter from "./routes/user.routes.js";
 import agentRouter from "./routes/agent.routes.js";
 
 const app = express();
+
+const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(errorMiddleware);
